@@ -11,6 +11,7 @@ import com.rest.student.Services.StudentService;
 import com.rest.student.entities.Student;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class StudentController {
     @Autowired
     Student s1;
