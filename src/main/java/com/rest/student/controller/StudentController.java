@@ -6,17 +6,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.rest.student.Services.StudentService;
 import com.rest.student.entities.Student;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class StudentController {
     @Autowired
     Student s1;
@@ -56,7 +51,7 @@ public class StudentController {
     @DeleteMapping("/student/{id}")
     public ResponseEntity deleteStudent(@PathVariable int id) {
         String result =  this.studentService.deleteStudent(id);
-        if(result == "true"){
+        if(result.equals("true")){
             return ResponseEntity.status(HttpStatus.ACCEPTED).build();
         }
         else{
@@ -67,7 +62,7 @@ public class StudentController {
     @PutMapping("/student/{id}")
     public ResponseEntity updateStudent(@RequestBody Student student, @PathVariable int id) {
         String result = studentService.updateStudent(student, id);
-        if(result == "Updated"){
+        if(result.equals("Updated")){
             return ResponseEntity.ok().build();
         }
         else{
