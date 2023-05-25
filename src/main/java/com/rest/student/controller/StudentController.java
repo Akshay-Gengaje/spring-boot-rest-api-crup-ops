@@ -11,13 +11,12 @@ import com.rest.student.Services.StudentService;
 import com.rest.student.entities.Student;
 
 @RestController
-@CrossOrigin(origins = "*")
 public class StudentController {
     @Autowired
     Student s1;
     @Autowired
     private StudentService studentService;
-
+    @CrossOrigin(origins = "*")
     @GetMapping("/student")
     public ResponseEntity<List<Student>> getStudent() {
         List<Student> studentList = studentService.getAllStudents();
@@ -27,6 +26,7 @@ public class StudentController {
         return ResponseEntity.of(Optional.of(studentList));
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/student/{id}")
     public ResponseEntity<Student> getStudentById(@PathVariable int id) {
         Student student = studentService.getStudentById(id);
@@ -36,6 +36,7 @@ public class StudentController {
         return ResponseEntity.of(Optional.of(student));
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/student")
     public ResponseEntity<Student> addStudent(@RequestBody Student s1) {
         Student student = null;
@@ -48,6 +49,7 @@ public class StudentController {
         }
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/student/{id}")
     public ResponseEntity deleteStudent(@PathVariable int id) {
         String result =  this.studentService.deleteStudent(id);
@@ -59,6 +61,7 @@ public class StudentController {
         }
     }
 
+    @CrossOrigin(origins = "*")
     @PutMapping("/student/{id}")
     public ResponseEntity updateStudent(@RequestBody Student student, @PathVariable int id) {
         String result = studentService.updateStudent(student, id);
