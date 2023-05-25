@@ -13,32 +13,63 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) 
     private int rollNo;
-    private String name;
+    private String firstName;
+    private String lastName;
+    private long mobileNumber;
+    private String email;
 
-
-    public Student() {
+    public Student(){
         super();
     }
 
-    public Student(int rollNo, String name) {
+    public Student(int rollNo, String firstName, String lastName, long mobileNumber, String email) {
         this.rollNo = rollNo;
-        this.name = name;
-    }
-
-    public void setRollNo(int rollNo) {
-        this.rollNo = rollNo;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mobileNumber = mobileNumber;
+        this.email = email;
     }
 
     public int getRollNo() {
         return rollNo;
     }
 
-    public String getName() {
-        return this.name;
+    public void setRollNo(int rollNo) {
+        this.rollNo = rollNo;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getFirstName() {
+        return firstName;
     }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public long getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(long mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
 
 }
